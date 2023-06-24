@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Calorimeter</title>
+  </head>
+  <body>
+    <header
+      class="bg-primary d-sm-flex justify-content-between align-items-center text-white text-center px-5 py-2"
+    >
+      <h1 class="mx-2">
+        <i class="fas fa-utensils sm-text-center"></i> Caloriemeter
+      </h1>
+      <div>
+        <button
+          class="btn btn-outline-light mx-3"
+          data-bs-toggle="modal"
+          data-bs-target="#limit-modal"
+        >
+          Set Daily Limit
+        </button>
+        <button class="btn btn-outline-light">Reset Day</button>
+      </div>
+    </header>
+
+    <!-- Stats -->
+    <section class="stats px-5 my-5">
+      <div class="row g-3 my-5">
+        <div class="col-md-6">
+          <div class="card text-center bg-dark text-white">
+            <div class="card-body">
+              <div id="calories-limit" class="fs-1 fw-bold">2000</div>
+              <p class="fs-4">Daily Calorie Limit</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card text-center bg-primary text-white">
+            <div class="card-body">
+              <div id="calories-limit" class="fs-1 fw-bold">400</div>
+              <p class="fs-4">Gain/Loss</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card text-center bg-light">
+            <div class="card-body">
+              <div id="calories-consumed" class="fs-1 fw-bold">700</div>
+              <p class="fs-4">Calories consumed</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center bg-light">
+            <div class="card-body">
+              <div id="calories-burned" class="fs-1 fw-bold">300</div>
+              <p class="fs-4">Calories burned</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center bg-light">
+            <div class="card-body">
+              <div id="calories-remaining" class="fs-1 fw-bold">1600</div>
+              <p class="fs-4">Calories remaining</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progress -->
+    <div class="px-5">
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-valuenow="0"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <section class="filter my-5 px-5">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Filter Meals.."
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Filter Workouts.."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Meals -->
+
+    <section class="meals px-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div
+            class="d-flex justify-content-between align-items-center border-start border-primary border-3 p-2"
+          >
+            <h2>Meals/Food Items</h2>
+            <button
+              class="btn btn-sm py-2 px-3 btn-primary text-white fw-bold h-100"
+              data-bs-toggle="collapse"
+              data-bs-target="#Add-Meal"
+            >
+              + Add Meal
+            </button>
+          </div>
+          <!-- Add Meal Collapse -->
+          <div class="collapse" id="Add-Meal">
+            <div class="card card-body bg-light">
+              <form action="">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Meal"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Calories"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-sm fw-bold px-3 py-2 h-100 btn-primary text-white"
+                >
+                  Add
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- Meals Items -->
+          <div id="meal-items">
+            <!-- Item 1 -->
+            <div class="card my-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="mx-1">BreakFast</h4>
+                  <div
+                    class="bg-primary text-white text-center px-2 px-sm-5 fs-1 rounded-2"
+                  >
+                    350
+                  </div>
+                  <button class="delete btn btn-danger btn-sm mx-2">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="card my-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="mx-1">Lunch</h4>
+                  <div
+                    class="bg-primary text-white text-center px-2 px-sm-5 fs-1 rounded-2"
+                  >
+                    600
+                  </div>
+                  <button class="delete btn btn-danger btn-sm mx-2">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="d-flex justify-content-between align-items-center p-2 border-start border-warning border-3"
+          >
+            <h2>Workouts</h2>
+            <button
+              class="btn btn-sm btn-warning text-white fw-bold px-3 py-2 h-100"
+              data-bs-toggle="collapse"
+              data-bs-target="#Add-Workout"
+            >
+              + Add Workout
+            </button>
+          </div>
+          <!-- Add Workout Collapse -->
+          <div class="collapse" id="Add-Workout">
+            <div class="card card-body bg-light">
+              <form action="">
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Workout"
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Calories"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-sm btn-warning fw-bold px-3 py-2 h-100 text-white"
+                >
+                  Add Workout
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- Workout Items -->
+          <div id="workout-items">
+            <!-- Item 1 -->
+            <div class="card my-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="mx-1">TreadMill 1 hours</h4>
+                  <div
+                    class="bg-warning text-white text-center px-2 px-sm-5 fs-1 rounded-2"
+                  >
+                    500
+                  </div>
+                  <button class="delete btn btn-danger btn-sm mx-2">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="card my-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="mx-1">Bike 90 minutes</h4>
+                  <div
+                    class="bg-warning text-white text-center px-2 px-sm-5 fs-1 rounded-2"
+                  >
+                    400
+                  </div>
+                  <button class="delete btn btn-danger btn-sm mx-2">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Limit Modal -->
+    <div
+      class="modal fade"
+      id="limit-modal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Set Daily Limit</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="limit-form">
+              <div class="mb-3">
+                <label for="limit" class="form-label"
+                  >Daily Calorie Limit</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="limit"
+                  placeholder="2000"
+                />
+              </div>
+
+              <button type="submit" class="btn btn-primary text-white">
+                Save
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
